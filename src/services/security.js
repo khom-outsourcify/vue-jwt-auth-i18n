@@ -2,7 +2,8 @@ import API from './API';
 
 export default {
   login(username, password) {
-    return API().post('/checkCredentials/', {
+    // Edit to Auth route
+    return API().post('/posts', {
       userName: username,
       password: password
     });

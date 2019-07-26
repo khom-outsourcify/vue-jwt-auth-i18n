@@ -40,7 +40,10 @@ export default {
 
       return SecurityAPI.login(payload.username, payload.password)
         .then(res => {
-          const accessToken = res.data.accessToken;
+          // Fake Token
+          const accessToken =
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+          // const accessToken = res.data.accessToken;
           const user = jwt.decode(accessToken);
 
           Cookies.set('access_token', accessToken);

@@ -5,7 +5,7 @@ export default () => {
     // `baseURL` will be prepended to `url` unless `url` is absolute.
     // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
     // to methods of that instance.
-    baseURL: 'http://127.0.0.1:8000/api',
+    baseURL: 'https://jsonplaceholder.typicode.com',
 
     // `timeout` specifies the number of milliseconds before the request times out.
     // If the request takes longer than `timeout`, the request will be aborted.

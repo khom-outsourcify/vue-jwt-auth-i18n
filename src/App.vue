@@ -1,24 +1,34 @@
 <template>
   <div id="app">
-    <div id="nav" v-if="isAuthenticated">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>
+    <Navigation v-if="isAuthenticated" />
+
+    <p>
+      <button v-if="isAuthenticated" @click="logout">Logout</button>
+    </p>
+
+    <LanguageSwitcher />
+
     <router-view />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import Navigation from "@/components/Navigation";
 
 export default {
+  components: {
+    LanguageSwitcher,
+    Navigation
+  },
   computed: mapGetters({
     isAuthenticated: "security/isAuthenticated"
   }),
   methods: {
     logout() {
       this.$store.dispatch("security/logout").then(() => {
-        this.$router.push("/login");
+        this.$router.push(this.$i18nRoute({ name: "login" }));
       });
     }
   },
@@ -42,15 +52,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

@@ -1,4 +1,9 @@
 # vue-jwt-auth
+This's only example templates Vue.js 
+
+Features
+- JWT Auth
+- i18n
 
 ## Project setup
 ```
